@@ -1,0 +1,7 @@
+[color]
+	ui = true
+[user]
+	email = leeonky@gmail.com
+	name = leeonky
+[core]
+	excludesfile = /home/gauss/.gitignore_global

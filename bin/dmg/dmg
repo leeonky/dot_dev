@@ -1,0 +1,86 @@
+container_never_run() {
+	! sudo docker ps -a | grep -q "$IMAGE_CONTAINER"
+}
+
+no_running_container() {
+	! sudo docker ps | grep -q "$IMAGE_CONTAINER"
+}
+
+start_container_first() {
+	local arg_set=()
+	if [ "$CONTAINER_HOST" ]; then
+		arg_set+=(-h)
+		arg_set+=("$CONTAINER_HOST")
+	else
+		arg_set+=(-h)
+		arg_set+=("$IMAGE_CONTAINER")
+	fi
+	if [ "$WORKING_USER" ]; then
+		arg_set+=(-u)
+		arg_set+=($WORKING_USER)
+	fi
+	if [ "$WORKING_DIR" ]; then
+		arg_set+=(-w)
+		arg_set+=("$WORKING_DIR")
+	fi
+	if [ "$WORKING_ADDR" ]; then
+		arg_set+=(-e)
+		arg_set+=("WORKING_ADDR=$WORKING_ADDR")
+	fi
+	if [ "$DISPLAY" ]; then
+		arg_set+=(-e)
+		arg_set+=("DISPLAY=$DISPLAY")
+	fi
+	for port in "${EXPOSE_PORTS[@]}"
+	do
+		arg_set+=(-p)
+		arg_set+=("$port")
+	done
+	for volumn in "${VOLUMNS[@]}"
+	do
+		arg_set+=(-v)
+		arg_set+=("$volumn")
+	done
+	sudo docker run -d --name $IMAGE_CONTAINER --privileged=true "${arg_set[@]}" $DOCKER_REPO$DOCKER_IMAGE$IMAGE_VERSION "${START_COMMANDS[@]}"
+}
+
+dmg_start() {
+	if no_running_container; then
+		if container_never_run; then
+			start_container_first
+		else
+			sudo docker start $IMAGE_CONTAINER
+		fi
+		sleep 1
+	fi
+}
+
+dmg_stop() {
+	sudo docker stop $IMAGE_CONTAINER
+}
+
+dmg_exit() {
+	sudo docker rm -f $IMAGE_CONTAINER
+}
+
+dmg_delete() {
+	dmg_exit
+	sudo docker rmi -f $DOCKER_REPO$DOCKER_IMAGE$IMAGE_VERSION
+}
+
+dmg_exec() {
+	dmg_start && sudo docker exec -it $IMAGE_CONTAINER "$@"
+}
+
+dmg_main() {
+	if [ ! "$DOCKER_IMAGE" ]; then
+		DOCKER_IMAGE=$IMAGE_CONTAINER
+	fi
+	if [ "$IMAGE_VERSION" ]; then
+		IMAGE_VERSION=":$IMAGE_VERSION"
+	fi
+	local command=$1
+	shift 1
+	dmg_$command "$@"
+}
+

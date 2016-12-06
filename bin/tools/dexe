@@ -1,0 +1,10 @@
+#dexec container args
+image_container=$1
+shift
+
+if [ "$image_container" == "" ]; then
+	echo 'Error: should pass container name' >&2
+	exit 1
+fi
+
+$image_container exec env TERM=$TERM env BASH_HOST=$HOSTNAME bproxy -d "$(pwd)" "$@"

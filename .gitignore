@@ -1,0 +1,11 @@
+.local/
+.ssh/
+Desktop/
+.mozilla/
+.esd_auth
+.dbus/
+.config/
+.cache/
+.viminfo
+.bash_history
+.ICEauthority

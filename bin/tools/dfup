@@ -1,0 +1,46 @@
+gettag() {
+	local path=$(pwd)
+	cd "$1"
+	local image=$(basename $1)
+	local branch=$(git branch | grep '*' | awk '{print $2}')
+	local version=$(git log | head -n1 | awk '{print $2}')
+	version=${version:0:7}
+	echo $image:$branch-$version
+	cd "$path"
+}
+
+#gettag '/share/dockers/centos-7'
+
+update_dependency() {
+	local path=$(pwd)
+	local new_tag=$2
+	local image=$(echo $new_tag | awk -F: '{print $1}')
+	cd "$1"
+	if [ -f DockerFile ]; then
+		if grep -q "/$image:" DockerFile || grep -q "/$image\$" DockerFile; then
+			if ! grep -q "/$new_tag\$" DockerFile; then
+				sed -i "s/\\(^FROM .*\/\\).*$/\\1$new_tag/g" DockerFile
+				git add .
+				git commit -a -m "Update via dependency changed"
+				git push
+				next_path=$(pwd)
+				cd ../
+				"$command_exe" "$next_path"
+			fi
+		fi
+	fi
+	cd "$path"
+}
+
+main() {
+	local tag=$(gettag $1)
+	for path in $(find * -maxdepth 0 -type d)
+	do
+		update_dependency $path $tag
+	done
+}
+
+command_exe="$0"
+if [ $# == 1 ]; then
+	main $1
+fi
