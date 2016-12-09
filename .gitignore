@@ -6,6 +6,7 @@ Desktop/
 .dbus/
 .config/
 .cache/
+shunit2/
 .viminfo
 .bash_history
 .ICEauthority
