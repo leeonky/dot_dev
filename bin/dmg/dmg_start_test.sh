@@ -6,7 +6,16 @@ setUp() {
 	mock_function sleep ''
 	DOCKER_IMAGE=docker_image
 	IMAGE_CONTAINER=image_container
+	unset DOCKER_REPO
+	unset WORKING_USER
+	unset WORKING_DIR
+	unset WORKING_ADDR
+	unset IMAGE_VERSION
+	unset EXPOSE_PORTS
+	unset VOLUMNS
+	unset START_COMMANDS
 	unset DISPLAY
+	unset HOSTS_MAPPING
 }
 
 test_start_container_only_with_name() {
@@ -116,6 +125,13 @@ test_nothing_for_running_container() {
 	dmg_main start
 
 	mock_verify sudo ONLY_CALLED_WITH docker ps
+}
+
+test_start_container_with_one_hosts_mapping() {
+	HOSTS_MAPPING=('l:127.0.0.1')
+	dmg_main start
+
+	mock_verify sudo HAS_CALLED_WITH docker run -d --name image_container --privileged=true -h image_container --add-host=l:127.0.0.1 docker_image
 }
 
 test_start_stopped_container() {

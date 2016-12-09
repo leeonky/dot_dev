@@ -10,6 +10,7 @@ WORKING_ADDR='172.16.228.1:/share/'
 # IMAGE_VERSION=1.0.1
 EXPOSE_PORTS=('3000:3000')
 START_COMMANDS=('main_loop')
+HOSTS_MAPPING=('epi.ul-e.com:192.168.38.250')
 
 
 dmg_main "$@"

@@ -41,6 +41,10 @@ start_container_first() {
 		arg_set+=(-v)
 		arg_set+=("$volumn")
 	done
+	for host_mapping in "${HOSTS_MAPPING[@]}"
+	do
+		arg_set+=("--add-host=$host_mapping")
+	done
 	sudo docker run -d --name $IMAGE_CONTAINER --privileged=true "${arg_set[@]}" $DOCKER_REPO$DOCKER_IMAGE$IMAGE_VERSION "${START_COMMANDS[@]}"
 }
 
