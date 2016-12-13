@@ -16,10 +16,10 @@ update_dependency() {
 	local new_tag=$2
 	local image=$(echo $new_tag | awk -F: '{print $1}')
 	cd "$1"
-	if [ -f DockerFile ]; then
-		if grep -q "/$image:" DockerFile || grep -q "/$image\$" DockerFile; then
-			if ! grep -q "/$new_tag\$" DockerFile; then
-				sed -i "s/\\(^FROM .*\/\\).*$/\\1$new_tag/g" DockerFile
+	if [ -f Dockerfile ]; then
+		if grep -q "/$image:" Dockerfile || grep -q "/$image\$" Dockerfile; then
+			if ! grep -q "/$new_tag\$" Dockerfile; then
+				sed -i "s/\\(^FROM .*\/\\).*$/\\1$new_tag/g" Dockerfile
 				git add .
 				git commit -a -m "Update via dependency changed"
 				git push
