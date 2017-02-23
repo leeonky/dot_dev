@@ -12,7 +12,9 @@ WORKING_ADDR='172.16.228.1:/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 START_COMMANDS=('main_loop')
 
-VOLUMNS+=('/share/dot_dev/:/home/gauss/')
+VOLUMNS+=('/share/dot_dev/bin:/home/gauss/bin')
+VOLUMNS+=('/share/dot_dev/.dmg:/home/gauss/.dmg')
+VOLUMNS+=('/share/dot_dev/.bash_profile:/home/gauss/.bash_profile')
 VOLUMNS+=('/home/leeonky/.ssh/:/home/gauss/.ssh/')
 
 dmg_main "$@"
