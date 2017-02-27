@@ -6,14 +6,13 @@ DOCKER_REPO=daocloud.io/leeonky/
 DOCKER_IMAGE=vim
 WORKING_USER=gauss
 WORKING_DIR='/share/'
-WORKING_ADDR='172.16.228.1:/share/'
+WORKING_ADDR='192.168.1.108:/share/'
 # IMAGE_VERSION=1.0.1
 # EXPOSE_PORTS=('80' '81')
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 START_COMMANDS=('main_loop')
 
 VOLUMNS+=('/share/dot_dev/bin:/home/gauss/bin')
-VOLUMNS+=('/share/dot_dev/.dmg:/home/gauss/.dmg')
 VOLUMNS+=('/share/dot_dev/.bash_profile:/home/gauss/.bash_profile')
 
 dmg_main "$@"

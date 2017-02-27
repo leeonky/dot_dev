@@ -16,6 +16,7 @@ setUp() {
 	unset START_COMMANDS
 	unset DISPLAY
 	unset HOSTS_MAPPING
+	unset WORKING_ENV
 }
 
 test_start_container_only_with_name() {
@@ -146,6 +147,13 @@ test_start_stopped_container() {
 	mock_verify sudo CALLED_WITH_ARGS docker ps
 	mock_verify sudo CALLED_WITH_ARGS docker ps -a
 	mock_verify sudo CALLED_WITH_ARGS docker start image_container
+}
+
+test_start_container_with_env() {
+	WORKING_ENV=('a=b' 'c=d')
+	dmg_main start
+
+	mock_verify sudo HAS_CALLED_WITH docker run -d --name image_container --privileged=true -h image_container -e 'a=b' -e 'c=d' docker_image
 }
 
 . $SHUNIT2_BIN

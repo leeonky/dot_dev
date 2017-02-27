@@ -45,6 +45,11 @@ start_container_first() {
 	do
 		arg_set+=("--add-host=$host_mapping")
 	done
+	for working_env in "${WORKING_ENV[@]}"
+	do
+		arg_set+=(-e)
+		arg_set+=("$working_env")
+	done
 	sudo docker run -d --name $IMAGE_CONTAINER --privileged=true "${arg_set[@]}" $DOCKER_REPO$DOCKER_IMAGE$IMAGE_VERSION "${START_COMMANDS[@]}"
 }
 
