@@ -1,0 +1,4 @@
+. .dev
+
+dexe "$GNU_C_DEV_CONTAINER" ./test.sh
+
