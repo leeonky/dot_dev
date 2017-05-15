@@ -1,4 +1,4 @@
 . .dev
 command=$(basename $0)
 
-dexe "$RAILS_DEV_CONTAINER" "$command" "$@"
+dexe "$GNU_C_DEV_CONTAINER" "$command" "$@"
