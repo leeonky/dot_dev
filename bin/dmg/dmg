@@ -77,8 +77,17 @@ dmg_delete() {
 	sudo docker rmi -f $DOCKER_REPO$DOCKER_IMAGE$IMAGE_VERSION
 }
 
+if_pipeline() {
+	[ -t 1 ]
+}
+
 dmg_exec() {
-	dmg_start && sudo docker exec -it $IMAGE_CONTAINER "$@"
+	if if_pipeline; then
+		ops=i
+	else
+		ops=it
+	fi
+	dmg_start && sudo docker exec -$ops $IMAGE_CONTAINER "$@"
 }
 
 dmg_main() {
