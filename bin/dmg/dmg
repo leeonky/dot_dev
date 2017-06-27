@@ -78,7 +78,7 @@ dmg_delete() {
 }
 
 if_pipeline() {
-	! [ -t 1 ]
+	! tty -s
 }
 
 dmg_exec() {
