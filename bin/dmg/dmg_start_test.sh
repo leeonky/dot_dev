@@ -25,6 +25,14 @@ test_start_container_only_with_name() {
 	mock_verify sudo HAS_CALLED_WITH docker run -d --name image_container --privileged=true -h image_container docker_image
 }
 
+test_start_container_only_with_shm_size() {
+	SHM_SIZE=1G
+
+	dmg_main start
+
+	mock_verify sudo HAS_CALLED_WITH docker run -d --name image_container --privileged=true --shm-size 1G -h image_container docker_image
+}
+
 test_start_container_only_with_no_docker_image() {
 	unset DOCKER_IMAGE
 	dmg_main start

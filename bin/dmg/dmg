@@ -8,6 +8,10 @@ no_running_container() {
 
 start_container_first() {
 	local arg_set=()
+	if [ "$SHM_SIZE" ]; then
+		arg_set+=(--shm-size)
+		arg_set+=("$SHM_SIZE")
+	fi
 	if [ "$CONTAINER_HOST" ]; then
 		arg_set+=(-h)
 		arg_set+=("$CONTAINER_HOST")
