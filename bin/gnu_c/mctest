@@ -1,0 +1,7 @@
+if [ "$(hostname)" == "os-dev" ]; then
+	dos2unix | ./map_test.awk
+	echo
+	cat /tmp/res.json | jq -s -r '.[] | select(.result == "FAILED") | "\(.suite) \(.case):\n\(.output)"'
+else
+	dexe "os-dev" "mctest" "$@"
+fi

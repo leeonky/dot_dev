@@ -1,0 +1,5 @@
+if [ "$(hostname)" == "os-dev" ]; then
+	"/usr/bin/dos2unix"
+else
+	dexe "os-dev" "dos2unix" "$@"
+fi
