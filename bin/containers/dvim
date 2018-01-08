@@ -2,8 +2,9 @@
 
 IMAGE_CONTAINER=$(basename $0)
 
-DOCKER_REPO=daocloud.io/leeonky/
+DOCKER_REPO=registry.docker-cn.com/leeonky/
 DOCKER_IMAGE=vim
+IMAGE_VERSION=ubuntu
 WORKING_USER=gauss
 WORKING_DIR='/share/'
 WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
