@@ -2,7 +2,8 @@
 
 IMAGE_CONTAINER=$(basename $0)
 
-DOCKER_REPO=daocloud.io/leeonky/
+DOCKER_REPO=leeonky/
+IMAGE_VERSION=ubuntu
 # DOCKER_IMAGE=image_name
 WORKING_USER=gauss
 WORKING_DIR='/share/'

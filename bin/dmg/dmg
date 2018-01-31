@@ -35,6 +35,10 @@ start_container_first() {
 		arg_set+=(-e)
 		arg_set+=("DISPLAY=$DISPLAY")
 	fi
+	if [ "$HOST_DISPLAY" ]; then
+		arg_set+=(-e)
+		arg_set+=("HOST_DISPLAY=$HOST_DISPLAY")
+	fi
 	for port in "${EXPOSE_PORTS[@]}"
 	do
 		arg_set+=(-p)

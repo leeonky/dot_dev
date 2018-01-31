@@ -1,0 +1,4 @@
+. .dev
+command=$(basename $0)
+
+dexe "$MAVEN_DEV_CONTAINER" "$command" "$@"

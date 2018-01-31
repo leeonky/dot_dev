@@ -2,7 +2,7 @@
 
 IMAGE_CONTAINER=$(basename $0)
 
-DOCKER_REPO=registry.docker-cn.com/leeonky/
+DOCKER_REPO=leeonky/
 # DOCKER_IMAGE=image_name
 IMAGE_VERSION=ubuntu
 WORKING_USER=gauss
