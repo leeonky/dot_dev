@@ -12,6 +12,7 @@ WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
 # EXPOSE_PORTS=('80' '81')
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 START_COMMANDS=('main_loop')
+WORKING_ENV=("DEV_HOST=$DEV_HOST")
 
 VOLUMNS+=('/share/dot_dev/bin:/home/gauss/bin')
 VOLUMNS+=('/share/dot_dev/.bash_profile:/home/gauss/.bash_profile')

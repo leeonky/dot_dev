@@ -39,6 +39,10 @@ start_container_first() {
 		arg_set+=(-e)
 		arg_set+=("HOST_DISPLAY=$HOST_DISPLAY")
 	fi
+	if [ "$WORKING_TYPE" ]; then
+		arg_set+=(-e)
+		arg_set+=("WORKING_TYPE=$WORKING_TYPE")
+	fi
 	for port in "${EXPOSE_PORTS[@]}"
 	do
 		arg_set+=(-p)

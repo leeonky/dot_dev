@@ -7,4 +7,6 @@ if [ "$image_container" == "" ]; then
 	exit 1
 fi
 
-$image_container exec env TERM=$TERM env BASH_HOST=$HOSTNAME bproxy -d "$(pwd)" "$@"
+
+
+$image_container exec env TERM=$TERM env BASH_HOST=$HOSTNAME env COLUMNS=`tput cols` env LINES=`tput lines` bproxy -d "$(pwd)" "$@"
