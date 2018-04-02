@@ -109,6 +109,9 @@ dmg_main() {
 	if [ "$IMAGE_VERSION" ]; then
 		IMAGE_VERSION=":$IMAGE_VERSION"
 	fi
+	if [ "${WORKING_TYPE:-}" == 'VOL' ]; then
+		VOLUMNS+=("$WORKING_DIR:$WORKING_DIR")
+	fi
 	local command=$1
 	shift 1
 	dmg_$command "$@"
