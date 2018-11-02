@@ -12,6 +12,7 @@ WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock' 'gradle_repo:/home/gauss/.gradle/' 'gradle_home:/home/gauss/gradle')
 START_COMMANDS=('main_loop')
 SHM_SIZE=8G
+WORKING_ENV=("DEV_HOST=$DEV_HOST")
 
 
 dmg_main "$@"
