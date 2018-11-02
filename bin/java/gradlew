@@ -1,0 +1,3 @@
+#. .dev
+shift
+dexe "${GRADLE_DEV_CONTAINER:-dgradle}" ./gradlew "$@"
