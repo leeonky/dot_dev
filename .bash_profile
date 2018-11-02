@@ -7,6 +7,6 @@ fi
 
 # User specific environment and startup programs
 
-export PATH=$HOME/.local/bin:$HOME/bin:$HOME/bin/containers:$HOME/bin/rails:$HOME/bin/gnu_c:$HOME/bin/tools:$HOME/bin/java:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:$HOME/bin/containers:$HOME/bin/rails:$HOME/bin/gnu_c:$HOME/bin/tools:$HOME/bin/java::$HOME/bin/ide/:$PATH
 export PS1="\e[0;36m[\u@\h \W]\$ \e[m"
 export DISPLAY=$HOST_DISPLAY

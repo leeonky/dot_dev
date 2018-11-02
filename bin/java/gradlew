@@ -1,3 +1,9 @@
-#. .dev
+#!/bin/bash
+
+if [ -f .dev ]; then
+	. .dev
+fi
+
 shift
+
 dexe "${GRADLE_DEV_CONTAINER:-dgradle}" ./gradlew "$@"

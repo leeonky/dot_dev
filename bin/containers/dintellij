@@ -8,6 +8,7 @@ IMAGE_VERSION=ubuntu
 WORKING_USER=gauss
 WORKING_DIR='/share/'
 WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
+DISPLAY=$HOST_DISPLAY
 # IMAGE_VERSION=1.0.1
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock' 'gradle_repo:/home/gauss/.gradle/' 'gradle_home:/home/gauss/gradle:ro')
 START_COMMANDS=('main_loop')
