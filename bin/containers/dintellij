@@ -3,7 +3,7 @@
 IMAGE_CONTAINER=$(basename $0)
 
 DOCKER_REPO=leeonky/
-# DOCKER_IMAGE=image_name
+DOCKER_IMAGE=intellij
 IMAGE_VERSION=ubuntu
 WORKING_USER=gauss
 WORKING_DIR='/share/'
