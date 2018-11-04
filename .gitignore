@@ -10,3 +10,5 @@ shunit2/
 .viminfo
 .bash_history
 .ICEauthority
+.docker/
+

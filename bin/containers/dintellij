@@ -10,10 +10,9 @@ WORKING_DIR='/share/'
 WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
 DISPLAY=$HOST_DISPLAY
 # IMAGE_VERSION=1.0.1
-VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock' 'gradle_repo:/home/gauss/.gradle/' 'gradle_home:/home/gauss/gradle')
+VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock' 'gradle_repo:/home/gauss/.gradle/' 'gradle_home:/home/gauss/gradle' 'idea_runtime:/home/gauss/idea_system')
 START_COMMANDS=('main_loop')
 WORKING_ENV=("DEV_HOST=$DEV_HOST")
-SHM_SIZE=8G
 
 #expose for guoguo dev
 EXPOSE_PORTS=('18080:18080' '10010:10010' '10020:10020' '10030:10030' '10040:10040' '10050:10050')
