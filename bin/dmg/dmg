@@ -43,6 +43,10 @@ start_container_first() {
 		arg_set+=(-e)
 		arg_set+=("WORKING_TYPE=$WORKING_TYPE")
 	fi
+	if [ "$NETWORK" ]; then
+		arg_set+=(--network)
+		arg_set+=("$NETWORK")
+	fi
 	for port in "${EXPOSE_PORTS[@]}"
 	do
 		arg_set+=(-p)

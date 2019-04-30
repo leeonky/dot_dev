@@ -13,6 +13,7 @@ DISPLAY=$HOST_DISPLAY
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock' 'gradle_repo:/home/gauss/.gradle/caches/modules-2/files-2.1' 'gradle_home:/home/gauss/gradle' 'idea_runtime:/home/gauss/idea_system' 'aws_repo:/home/gauss/.aws/' 'mvn_local:/home/gauss/.m2/')
 START_COMMANDS=('main_loop')
 WORKING_ENV=("DEV_HOST=$DEV_HOST")
+NETWORK=host
 
 #expose for guoguo dev
 EXPOSE_PORTS=('18080:18080' '10010:10010' '10020:10020' '10030:10030' '10040:10040' '10050:10050' '10060:10060' '10120:10120')
