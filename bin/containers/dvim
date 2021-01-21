@@ -4,17 +4,18 @@ IMAGE_CONTAINER=$(basename $0)
 
 DOCKER_REPO=leeonky/
 DOCKER_IMAGE=vim
-IMAGE_VERSION=ubuntu
+IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
 WORKING_DIR='/share/'
 WORKING_ADDR="$DEV_HOST:$WORKING_DIR"
 # IMAGE_VERSION=1.0.1
 # EXPOSE_PORTS=('80' '81')
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
-START_COMMANDS=('main_loop')
+START_COMMANDS=('tail' '-f' '/dev/null')
 WORKING_ENV=("DEV_HOST=$DEV_HOST")
 
 VOLUMNS+=('/share/dot_dev/bin:/home/gauss/bin')
 VOLUMNS+=('/share/dot_dev/.bash_profile:/home/gauss/.bash_profile')
+VOLUMNS+=('/share:/share')
 
 dmg_main "$@"
