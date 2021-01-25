@@ -4,4 +4,4 @@ if [ -f .dev ]; then
 	. .dev
 fi
 
-dexe "${GRADLE_DEV_CONTAINER:-dgradle}" ./gradlew "$@"
+dexe "${GRADLE_DEV_CONTAINER:-jdk11}" ./gradlew "$@"
