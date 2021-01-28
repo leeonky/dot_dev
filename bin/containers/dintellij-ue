@@ -3,7 +3,7 @@
 IMAGE_CONTAINER=$(basename $0)
 
 DOCKER_REPO=leeonky/
-DOCKER_IMAGE=intellij-ce
+DOCKER_IMAGE=intellij-ue
 IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
 WORKING_DIR='/share/'
