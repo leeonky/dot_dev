@@ -1,3 +1,0 @@
-#!/bin/bash
-
-dintellij exec bash -l x11app_launch.sh ~/idea/bin/idea.sh
