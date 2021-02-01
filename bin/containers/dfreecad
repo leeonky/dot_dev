@@ -3,17 +3,13 @@
 IMAGE_CONTAINER=$(basename $0)
 
 DOCKER_REPO=leeonky/
-DOCKER_IMAGE=vim
-
+DOCKER_IMAGE=free-cad
 IMAGE_VERSION=ubuntu-20
-
 WORKING_USER=gauss
-
+WORKING_DIR='/opt/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
-VOLUMNS+=('/opt/share/dot_dev/bin:/home/gauss/bin')
-VOLUMNS+=('/opt/share/dot_dev/.bash_profile:/home/gauss/.bash_profile')
-VOLUMNS+=('host_share:/opt/share')
-
+VOLUMNS+=('host_share:/share')
 START_COMMANDS=('tail' '-f' '/dev/null')
-
+WORKING_ENV=("DEV_HOST=$DEV_HOST")
 dmg_main "$@"
+

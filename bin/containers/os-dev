@@ -8,8 +8,8 @@ IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
 
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
-VOLUMNS+=('/share/dot_dev:/home/gauss')
-VOLUMNS+=('host_share:/share')
+VOLUMNS+=('/opt/share/dot_dev:/home/gauss')
+VOLUMNS+=('host_share:/opt/share')
 
 START_COMMANDS=('tail' '-f' '/dev/null')
 
