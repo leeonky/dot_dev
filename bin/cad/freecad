@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dfreecad exec bash -l x11app_launch.sh freecad
+

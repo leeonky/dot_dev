@@ -8,7 +8,7 @@ IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
 WORKING_DIR='/opt/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
-VOLUMNS+=('host_share:/share')
+VOLUMNS+=('host_share:/opt/share')
 START_COMMANDS=('tail' '-f' '/dev/null')
 WORKING_ENV=("DEV_HOST=$DEV_HOST")
 dmg_main "$@"

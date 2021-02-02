@@ -12,7 +12,7 @@ VOLUMNS+=('gradle_repo:/home/gauss/.gradle')
 VOLUMNS+=('gradle_home:/home/gauss/gradle')
 VOLUMNS+=('aws_repo:/home/gauss/.aws/')
 VOLUMNS+=('mvn_local:/home/gauss/.m2/')
-VOLUMNS+=('host_share:/share')
+VOLUMNS+=('host_share:/opt/share')
 
 START_COMMANDS=('tail' '-f' '/dev/null')
 
