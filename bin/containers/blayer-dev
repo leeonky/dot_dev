@@ -1,0 +1,15 @@
+. $(dirname $0)/../dmg/dmg
+
+IMAGE_CONTAINER=$(basename $0)
+
+DOCKER_REPO=leeonky/
+IMAGE_VERSION=ubuntu-20
+
+WORKING_USER=gauss
+
+VOLUMNS=('host_share:/opt/share')
+
+START_COMMANDS=('tail' '-f' '/dev/null')
+
+dmg_main "$@"
+
