@@ -6,7 +6,6 @@ DOCKER_REPO=leeonky/
 DOCKER_IMAGE=clion
 IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
-WORKING_DIR='/opt/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 VOLUMNS+=('clion_runtime:/home/gauss/idea_system')
 VOLUMNS+=('host_share:/opt/share')

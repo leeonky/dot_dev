@@ -6,7 +6,6 @@ DOCKER_REPO=leeonky/
 DOCKER_IMAGE=free-cad
 IMAGE_VERSION=ubuntu-20
 WORKING_USER=gauss
-WORKING_DIR='/opt/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('freecad_runtime_data:/home/gauss/.config/FreeCAD')
