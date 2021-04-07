@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dclion exec bash -l x11app_launch.sh ~/clion/bin/clion.sh
