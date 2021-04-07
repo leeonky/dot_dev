@@ -10,6 +10,7 @@ WORKING_DIR='/opt/share/'
 VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('freecad_runtime_data:/home/gauss/.config/FreeCAD')
+VOLUMNS+=('host_config:/home/gauss/host')
 START_COMMANDS=('tail' '-f' '/dev/null')
 WORKING_ENV=("DEV_HOST=$DEV_HOST")
 dmg_main "$@"
