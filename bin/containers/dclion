@@ -11,7 +11,6 @@ VOLUMNS+=('clion_runtime:/home/gauss/idea_system')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('host_config:/home/gauss/host')
 START_COMMANDS=('tail' '-f' '/dev/null')
-WORKING_ENV=("DEV_HOST=$DEV_HOST")
 
 dmg_main "$@"
 

@@ -1,3 +1,7 @@
+if [ -f /opt/share/host/host.rc ]; then
+	. /opt/share/host/host.rc
+fi
+
 container_never_run() {
 	! sudo docker ps -a | grep -q "$IMAGE_CONTAINER"
 }
@@ -98,12 +102,18 @@ if_pipeline() {
 }
 
 dmg_exec() {
+	local arg_set=()
+	for working_env in "${WORKING_ENV[@]}"
+	do
+		arg_set+=(-e)
+		arg_set+=("$working_env")
+	done
 	if if_pipeline; then
 		ops=i
 	else
 		ops=it
 	fi
-	dmg_start && sudo docker exec -$ops $IMAGE_CONTAINER "$@"
+	dmg_start && sudo docker exec -$ops "${arg_set[@]}" $IMAGE_CONTAINER "$@"
 }
 
 dmg_main() {
