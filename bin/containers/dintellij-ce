@@ -15,7 +15,7 @@ VOLUMNS+=('mvn_local:/home/gauss/.m2/')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('host_config:/home/gauss/host')
 START_COMMANDS=('tail' '-f' '/dev/null')
-EXPOSE_PORTS=('10080:10080' '10081:10081')
+EXPOSE_PORTS=('10082:10082' '10081:10081')
 
 dmg_main "$@"
 
