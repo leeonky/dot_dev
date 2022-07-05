@@ -11,6 +11,7 @@ VOLUMNS=('/var/run/docker.sock:/var/run/docker.sock')
 VOLUMNS+=('/opt/share/dot_dev:/home/gauss')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('host_config:/home/gauss/host')
+VOLUMNS+=('/tmp/work:/tmp/work')
 
 START_COMMANDS=('tail' '-f' '/dev/null')
 

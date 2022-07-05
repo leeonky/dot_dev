@@ -14,7 +14,7 @@ VOLUMNS+=('aws_repo:/home/gauss/.aws/')
 VOLUMNS+=('mvn_local:/home/gauss/.m2/')
 VOLUMNS+=('host_share:/opt/share')
 VOLUMNS+=('host_config:/home/gauss/host')
-VOLUMNS+=('/tmp/work:/tmp/work/')
+VOLUMNS+=('/tmp/work:/tmp/work')
 START_COMMANDS=('tail' '-f' '/dev/null')
 EXPOSE_PORTS=('10082:10082' '10081:10081')
 
